@@ -42,7 +42,7 @@ const payment=require('./routes/payment');
 //here i will do this connection put it into environment variable
 // mongoose.set('strictQuery',true);
 
-mongoose.connect(process.env.dbURL)
+mongoose.connect("mongodb+srv://krajeshpachori:rajesh123@cluster0.dscfewz.mongodb.net/DecorCart")
     .then(()=>{
         console.log("Db connected succesfully")
     })

@@ -40,7 +40,7 @@ router.get("/product/payment", isLoggedIn, async (req, res) => {
                     name: item.name,
                     description: item.desc,
                 },
-                unit_amount: item.price * 100, // Stripe uses paise (INR cents)
+                unit_amount: item.price * 10, // Stripe uses paise (INR cents)
             },
             quantity: 1,
         }));
@@ -49,12 +49,12 @@ router.get("/product/payment", isLoggedIn, async (req, res) => {
             payment_method_types: ["card"],
             line_items,
             mode: "payment",
-            success_url: "http://localhost:8080/payment/success", // update port if needed
+            success_url: "http://localhost:8080/payment/success", 
             cancel_url: "http://localhost:8080/payment/failure",
 
-//              customer_creation: 'always', // creates a new Stripe customer
-//   billing_address_collection: 'required',
-//    customer_email: user.email,
+             customer_creation: 'always', // creates a new Stripe customer
+  billing_address_collection: 'required',
+   customer_email: user.email,
         });
 
         res.redirect(303, session.url);
@@ -65,8 +65,8 @@ router.get("/product/payment", isLoggedIn, async (req, res) => {
 });
 
 // Payment Success Page
-router.get('/payment/success', async (req, res) => {
-    // Optional: Clear the user's cart
+router.get('/payment/success', isLoggedIn, async (req, res) => {
+    
     const user = await User.findById(req.user._id);
     user.cart = [];
     await user.save();
@@ -75,9 +75,9 @@ router.get('/payment/success', async (req, res) => {
 });
 
 // Payment Cancel Page
-// router.get('/payment/failure', (req, res) => {
-//     res.render('cart/failure'); // Render a cancel/failure EJS page
-// });
+router.get('/payment/failure', isLoggedIn,(req, res) => {
+    res.render('cart/failure'); // Render a cancel/failure EJS page
+});
 
 
 
