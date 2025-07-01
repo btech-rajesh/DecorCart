@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {isLoggedIn} = require('../middleware');
 const Product = require('../models/Product');
-const User = require('../models/user');
+const User = require('../models/User');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 
