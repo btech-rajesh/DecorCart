@@ -1,0 +1,100 @@
+<% layout('layouts/boilerplate') %>
+<%- include('../partials/navbar') %>
+<%- include('../partials/flash') %>
+ 
+   
+    <div class="row">
+<div class="col-6 mx-auto">
+
+    <form action="/products" method="POST"class=" needs-validation" novalidate>
+        <!-- use novalidate to use required functionality -->
+        <div class="mb-3">
+            <!--mb- margin bottom 3 -->
+            <label for="naam">Name:</label>
+            <input type="text" class="form-control" name="name" id="naam" placeholder="Name of the product" required>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Please enter the entity.
+              </div>
+        </div>
+    
+        <div class="mb-3">
+            <!-- margin bottom 3 -->
+            <label for="image">Image:</label>
+            <input type="text" class="form-control" name="img" id="image" placeholder="Image of the product" required>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+            <div class="invalid-feedback">
+                Please enter the entity.
+              </div>
+        </div>
+    
+        <div class="mb-3">
+            <!-- margin bottom 3 -->
+            <label for="paise">price:</label>
+            <input type="text" class="form-control" name="price" id="paise" placeholder="Price of the product" required>
+        </div>
+        <div class="valid-feedback">
+            Looks good!
+          </div>
+        <div class="invalid-feedback">
+            Please enter the amount.
+          </div>
+        <div class="mb-3">
+            <!-- margin bottom 3 -->
+            <label for="info">Desc:</label>
+            <textarea name="desc" id="info" rows="5" placeholder="Description of the products" required></textarea>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+            <div class="invalid-feedback">
+                Please enter the Description.
+              </div>
+        </div>
+        
+        
+
+    
+        <button class="btn btn-success" type="submit" >Add Product</button>
+    
+       
+    
+        
+    
+    </form>
+    
+
+
+
+</div>
+
+ </div>
+ <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+//     //()-this is a iife-immidiatly invoked function
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission in anyfield is left empty it does not allow anyone to edit form
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()//this is for client validation using try cache block in router
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+ </script>
+
+    
+</body>
+</html>

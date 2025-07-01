@@ -1,0 +1,8 @@
+# gitignore does not push these secret thing over version control
+# means .env is secret and not push over vcs
+
+
+# here these kept private means not push to github account
+.env
+node_modules
+package-lock.json

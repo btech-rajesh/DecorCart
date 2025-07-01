@@ -1,0 +1,59 @@
+<% layout('layouts/boilerplate') %>
+<%- include('../partials/navbar') %>
+<%- include('../partials/flash') %>
+
+<div class="row">
+
+    <% for(let product of products) { %>
+        <div class="col-lg-4 mt-3">
+            <div class="card shadow mx-auto" style="width: 18rem;">
+                <img src="<%= product.img %>" class="card-img-top" alt="Product Image">
+                
+                <!-- This is for avg rating to show over product -->
+                <span class="badge rounded-pill bg-light text-dark w-25 position-absolute translate-middle-y" style="top:41%;left:5%">
+                    <%= product.avgRating %> &star; | <%= product.reviews.length %>
+                </span>
+                <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-between align-items-center">
+                        <span><%= product.name %></span>
+
+
+                        <!-- User-defined attribute product-id  need for like-->
+                        <span class="btn like-btn" product-id="<%= product._id %>">
+                            <% if(currentUser && currentUser.wishList.includes(product._id)) { %>                        
+                              <i class="fas fa-heart text-danger"></i>
+
+                            <% } else { %>
+                                <i class="far fa-heart text-danger"></i>
+                            <% } %>
+                        </span>
+                    </h5>
+
+                    <p class="card-text"><%= product.desc %></p>
+                    
+                    <% if(product.reviews.length) { %>
+                        <p class="text-muted"><%= product.reviews.length %> reviews</p>
+                    <% } else { %>
+                        <p class="text-muted">No reviews</p>
+                    <% } %>
+
+                    <h6 class="card-price">
+                        <span class="fw-lighter fs-6 text-decoration-line-through">Rs. <%= product.price * 2 %></span>
+                        <span class="fw-bold"> Rs. <%= product.price %></span>
+                    </h6>
+                    
+                    <a href="/products/<%= product._id %>" class="btn btn-info">View Product</a>
+
+                    <% if(currentUser && currentUser.role === 'seller') { %>
+                        <form class="d-inline-block" action="/products/<%= product._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger">Delete Product</button>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    <% } %>
+
+</div>
+
+<script src="/js/common.js"></script>

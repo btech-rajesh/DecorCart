@@ -1,0 +1,65 @@
+<% layout('layouts/boilerplate') %>
+<%- include('../partials/navbar') %>
+<div class="row">
+  <div class="col-6 mx-auto">
+    <!-- Form with Bootstrap validation classes -->
+    <form action="/contact" method="POST" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="naam">Name:</label>
+        <input type="text" class="form-control" name="name" id="naam" placeholder="Enter your name" required>
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter your name.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image">Email:</label>
+        <input type="email" class="form-control" name="email" id="image" placeholder="Write your E-mail id" required>
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter a valid email address.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="paise">Phone No:</label>
+        <input type="text" class="form-control" name="phone" id="paise" placeholder="Enter valid phone number" required>
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter a valid phone number.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="info">Query:</label>
+        <textarea name="desc" id="info" class="form-control" rows="5" placeholder="Write your query here" required></textarea>
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please enter your query.</div>
+      </div>
+
+      <button class="btn btn-success" type="submit">Submit Query</button>
+      <!-- <button class="btn btn-primary" > Home </button> -->
+    </form>
+  </div>
+</div>
+
+<script>
+  // Bootstrap 5 Validation Script
+  (() => {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission if any field is left invalid
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        // Check if the form is valid
+        if (!form.checkValidity()) {
+          event.preventDefault() // Prevent submission if form is invalid
+          event.stopPropagation() // Stop event propagation
+        }
+
+        form.classList.add('was-validated') // Add Bootstrap's was-validated class for showing feedback
+      }, false)
+    })
+  })()
+</script>
+
+</body>
+</html>

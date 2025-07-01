@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('/images/product.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the whole page */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    height: 100vh; /* Sets the height to fill the entire viewport */
+    width: 100vw; /* Sets the width to fill the entire viewport */
+}
+

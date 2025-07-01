@@ -1,0 +1,30 @@
+<% layout('layouts/boilerplate') %>
+<%- include('../partials/navbar') %>
+
+
+<div class="container mt-5">
+  <h1 class="text-center">Schedule a Service</h1>
+  
+  <form  action="/schedule"  method="POST">
+    <div class="mb-3">
+      <label for="serviceType" class="form-label">Select Service</label>
+      <select class="form-select" id="serviceType" name="serviceType" required>
+        <option value="furnitureInstallation">Furniture Installation</option>
+        <option value="plumbing">Plumbing</option>
+        <option value="electrical">Electrical Services</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="serviceDate" class="form-label">Preferred Date</label>
+      <input type="date" class="form-control" id="serviceDate" name="serviceDate" required />
+    </div>
+    <div class="mb-3">
+      <label for="serviceTime" class="form-label">Preferred Time</label>
+      <input type="time" class="form-control" id="serviceTime" name="serviceTime" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Schedule Service</button>
+  </form>
+</div>
+
+</body>
+</html>
