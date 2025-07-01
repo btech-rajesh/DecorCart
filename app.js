@@ -32,7 +32,7 @@ const productapi=require('./routes/api/productapi');
 const contactRoutes = require('./routes/navbar'); // Adjust path if needed
 
 
-const User = require('./models/user');
+const User = require('./models/User');
 
 
 
