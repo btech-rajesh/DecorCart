@@ -1,11 +1,11 @@
 <% layout('layouts/boilerplate') %>
 <%- include('../partials/navbar') %>
 
-
 <div class="container mt-5">
   <h1 class="text-center">Schedule a Service</h1>
   
-  <form  action="/schedule"  method="POST">
+  <form action="/schedule" method="POST">
+    <!-- Service Type -->
     <div class="mb-3">
       <label for="serviceType" class="form-label">Select Service</label>
       <select class="form-select" id="serviceType" name="serviceType" required>
@@ -14,17 +14,46 @@
         <option value="electrical">Electrical Services</option>
       </select>
     </div>
+
+    <!-- Preferred Date -->
     <div class="mb-3">
       <label for="serviceDate" class="form-label">Preferred Date</label>
       <input type="date" class="form-control" id="serviceDate" name="serviceDate" required />
     </div>
+
+    <!-- Preferred Time -->
     <div class="mb-3">
       <label for="serviceTime" class="form-label">Preferred Time</label>
       <input type="time" class="form-control" id="serviceTime" name="serviceTime" required />
     </div>
+
+    <!-- Address Section -->
+    <div class="mb-3">
+      <label for="street" class="form-label">Street Address</label>
+      <input type="text" class="form-control" id="street" name="address[street]" placeholder="123 Main St" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="city" class="form-label">City</label>
+      <input type="text" class="form-control" id="city" name="address[city]" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="state" class="form-label">State</label>
+      <input type="text" class="form-control" id="state" name="address[state]" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="zip" class="form-label">Zip Code</label>
+      <input type="text" class="form-control" id="zip" name="address[zip]" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="country" class="form-label">Country</label>
+      <input type="text" class="form-control" id="country" name="address[country]" value="India" required />
+    </div>
+
+    <!-- Submit Button -->
     <button type="submit" class="btn btn-primary">Schedule Service</button>
   </form>
 </div>
-
-</body>
-</html>

@@ -33,11 +33,8 @@ const contactRoutes = require('./routes/navbar'); // Adjust path if needed
 
 
 const User = require('./models/user');
-const payment=require('./routes/payment');
 
 
-
-//  dbURL=process.env.dbURL;
 
 //here i will do this connection put it into environment variable
 // mongoose.set('strictQuery',true);
