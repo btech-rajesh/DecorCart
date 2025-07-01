@@ -1,7 +1,7 @@
 const express=require('express');
 const router=express.Router();//mini intance to use routers in place of app
 // const {isLoggedIn}=require('../../middleware');
-const User = require('../../models/user');
+const User = require('../../models/User');
 // const { route } = require('../product');
 
 // router.post('/product/:productId/like', isLoggedIn, async (req, res) => {
