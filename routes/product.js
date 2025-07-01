@@ -3,7 +3,6 @@ const Product = require('../models/Product');
 const router=express.Router();//mini intance to use routers in place of app
 const Review=require('../models/Review');
 const {validateProduct,isLoggedIn,isSeller,isProductAuthor}=require('../middleware');
-const User = require('../models/user');
 
 //now i wiill use this middle for new product to add on
 
