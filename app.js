@@ -121,12 +121,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 
 
-// Middleware to set currentUser for all views
-// app.use((req, res, next) => {
-//     res.locals.currentUser = req.user || null;
-//     next();
-//   });
-  
+
 
 
 app.use(productRoutes);//so that har incoming request pe 
@@ -145,6 +140,6 @@ app.use(productapi);//from expoerts module to app.js ans require,use as middlewa
 
 
 
-app.listen(8080,()=>{
+app.listen(process.env.PORT,()=>{
     console.log("server is connected at port 8080");
 })
